@@ -1,0 +1,851 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable PiqueMummerTableVersion="45">
+  <Forms>
+    <UDF1 Class="TCEForm" Encoding="Ascii85">U6D/1,CUJ7+9+j7t;@)(xgv2b3Mh?#qqD{z!7Vg6B^;;/f.Y8y-Ss$+]YUqh5A_o(W;ci+wDY0a[jzX=DIw7,I5Q*+2(5_dw_,3_hwy.CfpKyTe3xPG59vj,q{#!Ur/k=rdoMx$1WXE4GB/}8!RiWSaakiuF+8_QBA4Ri);bi{X4_hJug=+i?bj_#=(Hs8w#d;io7-Q{^d_7*1kaE01,TunV;t)bM@RVj_3n8(:2G:1lL;KxR)X2JO+6=i8AotJ7XAQLb-Lz!I-g!l((V,PAMGuvcKSkIol/So+G4IE*_qTp3Lf}gWqUc[iJ{EEEsR/Ff@vKnH/wbSplnya8gjqi6Gs:.^5Md.*q:V@9+?aKUAS(#@G,I4-Sa$.40X=!(Fg=,7^tDjwMe/x-O/r8zNaHs8_p{eWnC%Rbjz]Zfr/.LRxJP_Ql#^Bq/^4UFXHYx;k:UCj?gX^GO4Q?NYHi/A+7o7!y#MbysSX*,fDK#@zqPd[i9D*cG/b7#B9Sg%F-r.]}=</UDF1>
+  </Forms>
+  <CheatEntries>
+    <CheatEntry>
+      <ID>113987</ID>
+      <Description>"𝐑𝐄𝐀𝐃 𝐁𝐄𝐅𝐎𝐑𝐄 𝐒𝐀𝐘𝐈𝐍𝐆 "𝐈𝐓 𝐃𝐎𝐄𝐒𝐍'𝐓 𝐖𝐎𝐑𝐊""</Description>
+      <Color>0000FF</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>113986</ID>
+      <Description>"𝙋𝙊𝙄𝙉𝙏𝙀𝙍𝙎 𝙒𝙄𝙇𝙇 𝙋𝙊𝙋𝙐𝙇𝘼𝙏𝙀 𝙄𝙉𝙂𝘼𝙈𝙀"</Description>
+      <Color>8080FF</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>113884</ID>
+      <Description>"𝙔𝙊𝙐 𝘾𝘼𝙉 𝘼𝘾𝙏𝙄𝙑𝘼𝙏𝙀 𝙋𝙊𝙄𝙉𝙏𝙀𝙍𝙎 𝙏𝙊 𝙇𝙊𝘾𝙆 𝙑𝘼𝙇𝙐𝙀𝙎"</Description>
+      <Color>8080FF</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>113988</ID>
+      <Description>"𝐓𝐇𝐈𝐒 𝐖𝐀𝐒 𝐌𝐀𝐃𝐄 𝐅𝐎𝐑 𝐒𝐓𝐄𝐀𝐌!!!!"</Description>
+      <Color>0000FF</Color>
+      <GroupHeader>1</GroupHeader>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>113914</ID>
+      <Description>"&lt;---- ENABLE pLocalPlayer"</Description>
+      <Options moHideChildren="1" moActivateChildrenAsWell="1" moDeactivateChildrenAsWell="1"/>
+      <Color>00FFFF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : MHUR.exe
+  Version: 
+  Date   : 2023-09-30
+  Author : Hitlerjoe
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,MHUR.exe,48 8B 01 FF 90 80 02 00 00 48 89 44) // should be unique
+alloc(newmem,$1000,INJECT)
+alloc(LocalPlayer,8)
+
+label(code)
+label(return)
+
+LocalPlayer:
+dq 00
+
+newmem:
+
+code:
+  mov rax,[rcx]
+  mov [LocalPlayer],rcx
+  call qword ptr [rax+00000280]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 4
+return:
+registersymbol(INJECT LocalPlayer)
+
+[DISABLE]
+
+INJECT:
+  db 48 8B 01 FF 90 80 02 00 00
+
+unregistersymbol(INJECT)
+unregistersymbol(LocalPlayer)
+dealloc(newmem)
+dealloc(LocalPlayer)
+
+{
+// ORIGINAL CODE - INJECTION POINT: MHUR.exe+2ECA3B3
+
+MHUR.exe+2ECA382: 8B D0                       - mov edx,eax
+MHUR.exe+2ECA384: EB 02                       - jmp MHUR.exe+2ECA388
+MHUR.exe+2ECA386: 8B D1                       - mov edx,ecx
+MHUR.exe+2ECA388: 48 8B 4D F8                 - mov rcx,[rbp-08]
+MHUR.exe+2ECA38C: 4C 8D 8D 20 02 00 00        - lea r9,[rbp+00000220]
+MHUR.exe+2ECA393: 89 54 24 30                 - mov [rsp+30],edx
+MHUR.exe+2ECA397: 4C 8D 85 A0 00 00 00        - lea r8,[rbp+000000A0]
+MHUR.exe+2ECA39E: 48 C7 44 24 28 00 00 00 00  - mov qword ptr [rsp+28],00000000
+MHUR.exe+2ECA3A7: 48 8D 95 90 03 00 00        - lea rdx,[rbp+00000390]
+MHUR.exe+2ECA3AE: 48 89 5C 24 20              - mov [rsp+20],rbx
+// ---------- INJECTING HERE ----------
+MHUR.exe+2ECA3B3: 48 8B 01                    - mov rax,[rcx]
+// ---------- DONE INJECTING  ----------
+MHUR.exe+2ECA3B6: FF 90 80 02 00 00           - call qword ptr [rax+00000280]
+MHUR.exe+2ECA3BC: 48 89 44 24 68              - mov [rsp+68],rax
+MHUR.exe+2ECA3C1: 48 8B C8                    - mov rcx,rax
+MHUR.exe+2ECA3C4: 48 85 C0                    - test rax,rax
+MHUR.exe+2ECA3C7: 0F 84 B6 04 00 00           - je MHUR.exe+2ECA883
+MHUR.exe+2ECA3CD: 49 63 DC                    - movsxd  rbx,r12d
+MHUR.exe+2ECA3D0: 44 8D 63 01                 - lea r12d,[rbx+01]
+MHUR.exe+2ECA3D4: 44 89 65 E0                 - mov [rbp-20],r12d
+MHUR.exe+2ECA3D8: 44 3B 65 E4                 - cmp r12d,[rbp-1C]
+MHUR.exe+2ECA3DC: 7E 14                       - jle MHUR.exe+2ECA3F2
+}
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>113951</ID>
+          <Description>"𝘾𝙊𝙈𝙋𝘼𝘾𝙏 𝙈𝙊𝘿𝙀 (𝙈𝘼𝙆𝙀𝙎 𝙏𝙃𝙀 𝙈𝙀𝙉𝙐 𝙁𝙐𝙇𝙇𝙎𝘾𝙍𝙀𝙀𝙉 𝙊𝙉 𝘾𝙀)"</Description>
+          <Color>4B6D8B</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+
+function cycleFullCompact(sender,force)
+local state = not(compactmenuitem.Caption == 'Compact View Mode')
+ if force~=nil then state = not force end
+  compactmenuitem.Caption = state and 'Compact View Mode' or 'Full View Mode'
+   getMainForm().Splitter1.Visible = state
+   getMainForm().Panel4.Visible    = state
+   getMainForm().Panel5.Visible    = state
+end
+
+function addCompactMenu()
+ if compactmenualreadyexists then return
+end
+
+local parent = getMainForm().Menu.Items
+ compactmenuitem = createMenuItem(parent)
+ parent.add(compactmenuitem)
+ compactmenuitem.Caption = 'Compact View Mode'
+ compactmenuitem.OnClick = cycleFullCompact
+ compactmenualreadyexists = 'yes'
+end
+
+addCompactMenu()
+cycleFullCompact(nil,true)
+
+
+[DISABLE]
+
+cycleFullCompact(nil,false)
+
+
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>113934</ID>
+              <Description>"𝘿𝙄𝙎𝘼𝘽𝙇𝙀 𝘼𝙇𝙇 𝙊𝙋𝙏𝙄𝙊𝙉𝙎"</Description>
+              <Color>467086</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>{$lua}
+if syntaxcheck then return end
+[ENABLE]
+
+local mainHook = ('MHUR.exe')
+local al = getAddressList()
+for i = 0, al.Count - 1 do
+    if al[i].Active == true and al[i].Description ~= mainHook then al[i].Active = false
+ end
+end
+for i = 0, al.Count - 1 do
+     if al[i].Active == true  then al[i].Active = false
+ end
+end
+
+if not syntaxcheck then
+ synchronize(function()
+   local t = createTimer()
+   t.Interval,t.OnTimer = 500,function(tm)
+     tm.Destroy()
+     memrec.Active = false
+   end
+ end)
+end
+
+[DISABLE]
+</AssemblerScript>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>113933</ID>
+              <Description>"↑𝗨𝗦𝗘 𝗗𝗜𝗦𝗔𝗕𝗟𝗘 𝗔𝗟𝗟 𝗢𝗣𝗧𝗜𝗢𝗡𝗦 𝗕𝗨𝗧𝗧𝗢𝗡 𝗢𝗡𝗖𝗘 𝗬𝗢𝗨 𝗪𝗜𝗡↑"</Description>
+              <Color>0000FF</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>113937</ID>
+              <Description>"𝐌𝐄𝐒𝐒 𝐖𝐈𝐓𝐇 𝐒𝐓𝐔𝐅𝐅 𝐈𝐍𝐆𝐀𝐌𝐄, 𝐍𝐎𝐓 𝐏𝐑𝐄𝐆𝐀𝐌𝐄!!!!"</Description>
+              <Color>8080FF</Color>
+              <GroupHeader>1</GroupHeader>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>113915</ID>
+              <Description>"𝐈𝐓 𝐖𝐈𝐋𝐋 𝐏𝐎𝐏𝐔𝐋𝐀𝐓𝐄 𝐈𝐍𝐆𝐀𝐌𝐄 𝐈𝐍 𝐀 𝐅𝐄𝐖 𝐒𝐄𝐂𝐎𝐍𝐃𝐒"</Description>
+              <Color>0000FF</Color>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>113985</ID>
+                  <Description>"Player Name (IGNORE)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>808080</Color>
+                  <VariableType>String</VariableType>
+                  <Length>100</Length>
+                  <Unicode>1</Unicode>
+                  <CodePage>0</CodePage>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>[[[[LocalPlayer]+30]+228]+300]+0</Address>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>113913</ID>
+                  <Description>"pLocalPlayer (IGNORE)"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <Color>808080</Color>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>[LocalPlayer]</Address>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>113905</ID>
+                      <Description>"----------------------------------------------------------------------------------------------------------------"</Description>
+                      <Color>FFFF00</Color>
+                      <GroupHeader>1</GroupHeader>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>113909</ID>
+                      <Description>"𝗠𝗢𝗗𝗜𝗙𝗜𝗖𝗔𝗧𝗜𝗢𝗡𝗦 (ONLINE)(ACTIVATE INGAME NOT PREGAME)"</Description>
+                      <Color>C080FF</Color>
+                      <GroupHeader>1</GroupHeader>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>113990</ID>
+                          <Description>"Skills &amp; Exploits"</Description>
+                          <Options moHideChildren="1"/>
+                          <Color>00FFFF</Color>
+                          <GroupHeader>1</GroupHeader>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>114008</ID>
+                              <Description>"Level 9 Skills"</Description>
+                              <Color>FF8000</Color>
+                              <VariableType>Auto Assembler Script</VariableType>
+                              <AssemblerScript>{ Game   : MHUR.exe
+  Version:
+  Date   : 2024-09-27
+  Author : Hitlerjoe
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,MHUR.exe,89 44 24 20 E8 38 00 00 00 4C) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [rsp+20],#9
+  call MHUR.exe+4596E70
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop 4
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 89 44 24 20 E8 38 00 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: MHUR.exe+4596E2F
+
+MHUR.exe+4596E05: 89 44 24 20              - mov [rsp+20],eax
+MHUR.exe+4596E09: E8 72 B9 2C 00           - call MHUR.exe+4862780
+MHUR.exe+4596E0E: 8B 43 10                 - mov eax,[rbx+10]
+MHUR.exe+4596E11: 4C 8D 44 24 50           - lea r8,[rsp+50]
+MHUR.exe+4596E16: 44 88 7C 24 38           - mov [rsp+38],r15b
+MHUR.exe+4596E1B: 4D 8B CC                 - mov r9,r12
+MHUR.exe+4596E1E: 40 88 74 24 30           - mov [rsp+30],sil
+MHUR.exe+4596E23: 41 0F B6 D6              - movzx edx,r14b
+MHUR.exe+4596E27: 44 88 6C 24 28           - mov [rsp+28],r13b
+MHUR.exe+4596E2C: 48 8B CD                 - mov rcx,rbp
+// ---------- INJECTING HERE ----------
+MHUR.exe+4596E2F: 89 44 24 20              - mov [rsp+20],eax
+// ---------- DONE INJECTING  ----------
+MHUR.exe+4596E33: E8 38 00 00 00           - call MHUR.exe+4596E70
+MHUR.exe+4596E38: 4C 8B A4 24 D8 00 00 00  - mov r12,[rsp+000000D8]
+MHUR.exe+4596E40: 48 8B B4 24 C8 00 00 00  - mov rsi,[rsp+000000C8]
+MHUR.exe+4596E48: EB 02                    - jmp MHUR.exe+4596E4C
+MHUR.exe+4596E4A: 32 C0                    - xor al,al
+MHUR.exe+4596E4C: 4C 8B BC 24 90 00 00 00  - mov r15,[rsp+00000090]
+MHUR.exe+4596E54: 48 81 C4 98 00 00 00     - add rsp,00000098
+MHUR.exe+4596E5B: 41 5E                    - pop r14
+MHUR.exe+4596E5D: 41 5D                    - pop r13
+MHUR.exe+4596E5F: 5D                       - pop rbp
+}
+</AssemblerScript>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>113928</ID>
+                              <Description>"Infinite Skills(SET VALUE ON/OFF)"</Description>
+                              <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">1:Off
+9999999:On
+</DropDownList>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <Color>FFFF00</Color>
+                              <VariableType>Float</VariableType>
+                              <Address>[[[[LocalPlayer]+30]+228]+A90]+64</Address>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>114001</ID>
+                              <Description>"Infinite Skills (USE THIS FOR SOME CHARACTERS)"</Description>
+                              <Color>FFFF00</Color>
+                              <VariableType>Auto Assembler Script</VariableType>
+                              <AssemblerScript>{ Game   : MHUR.exe
+  Version: 
+  Date   : 2024-06-04
+  Author : Hitlerjoe
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(INJECT,MHUR.exe,8B 40 34 41 8B 09) // should be unique
+alloc(newmem,$1000,INJECT)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [rax+34],(float)9
+  mov ecx,[r9]
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 8B 40 34 41 8B 09
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: MHUR.exe+39E0A26
+
+MHUR.exe+39E0A00: 8B 40 08                 - mov eax,[rax+08]
+MHUR.exe+39E0A03: C1 E8 1D                 - shr eax,1D
+MHUR.exe+39E0A06: A8 01                    - test al,01
+MHUR.exe+39E0A08: 0F 85 34 01 00 00        - jne MHUR.exe+39E0B42
+MHUR.exe+39E0A0E: 40 0F B6 D7              - movzx edx,dil
+MHUR.exe+39E0A12: 48 89 74 24 38           - mov [rsp+38],rsi
+MHUR.exe+39E0A17: 49 8B C8                 - mov rcx,r8
+MHUR.exe+39E0A1A: E8 41 56 F4 FF           - call MHUR.exe+3926060
+MHUR.exe+39E0A1F: 4C 8B C8                 - mov r9,rax
+MHUR.exe+39E0A22: 0F B6 50 0C              - movzx edx,byte ptr [rax+0C]
+// ---------- INJECTING HERE ----------
+MHUR.exe+39E0A26: 8B 40 34                 - mov eax,[rax+34]
+// ---------- DONE INJECTING  ----------
+MHUR.exe+39E0A29: 41 8B 09                 - mov ecx,[r9]
+MHUR.exe+39E0A2C: 66 0F 6E D0              - movd xmm2,eax
+MHUR.exe+39E0A30: 66 0F 6E C9              - movd xmm1,ecx
+MHUR.exe+39E0A34: 0F 5B D2                 - cvtdq2ps xmm2,xmm2
+MHUR.exe+39E0A37: 0F 5B C9                 - cvtdq2ps xmm1,xmm1
+MHUR.exe+39E0A3A: 0F 28 C2                 - movaps xmm0,xmm2
+MHUR.exe+39E0A3D: 84 D2                    - test dl,dl
+MHUR.exe+39E0A3F: 74 0C                    - je MHUR.exe+39E0A4D
+MHUR.exe+39E0A41: F3 0F 5E C1              - divss xmm0,xmm1
+MHUR.exe+39E0A45: F3 0F 59 05 B7 02 CE 00  - mulss xmm0,[MHUR.exe+46C0D04]
+}
+</AssemblerScript>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>113919</ID>
+                              <Description>"Plus Ultra % (CHANGE TO 100 AND LOCK)"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <Color>FFFF00</Color>
+                              <VariableType>Float</VariableType>
+                              <Address>[[[LocalPlayer]+30]+228]+888</Address>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>113953</ID>
+                              <Description>"Run While Downed (SET VALUE TO ON AND LOCK)"</Description>
+                              <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">8:On
+*:Off
+</DropDownList>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <Color>FFFF00</Color>
+                              <VariableType>Byte</VariableType>
+                              <Address>[[[LocalPlayer]+30]+228]+4C8</Address>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>113993</ID>
+                              <Description>"Force Use Any Left Click Skill"</Description>
+                              <Options moHideChildren="1"/>
+                              <Color>0080FF</Color>
+                              <GroupHeader>1</GroupHeader>
+                              <CheatEntries>
+                                <CheatEntry>
+                                  <ID>113999</ID>
+                                  <Description>"MAKE SURE YOU USE IZUKU MIDORIYA"</Description>
+                                  <Color>0000FF</Color>
+                                  <GroupHeader>1</GroupHeader>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>113994</ID>
+                                  <Description>"YOU MUST WAIT FOR THE POINTER"</Description>
+                                  <Color>0000FF</Color>
+                                  <GroupHeader>1</GroupHeader>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>113995</ID>
+                                  <Description>"TO POPULATE TO MIDORIYA"</Description>
+                                  <Color>0000FF</Color>
+                                  <GroupHeader>1</GroupHeader>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>113996</ID>
+                                  <Description>"BEFORE CHANGING THE VALUE!!!!"</Description>
+                                  <Color>0000FF</Color>
+                                  <GroupHeader>1</GroupHeader>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>113997</ID>
+                                  <Description>"DO NOT LOCK THE VALUE EITHER"</Description>
+                                  <Color>0000FF</Color>
+                                  <GroupHeader>1</GroupHeader>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>113998</ID>
+                                  <Description>"SOME ABILITIES MAY NOT WORK ON SOME CHARACTERS"</Description>
+                                  <Color>0000FF</Color>
+                                  <GroupHeader>1</GroupHeader>
+                                </CheatEntry>
+                                <CheatEntry>
+                                  <ID>113992</ID>
+                                  <Description>"Force Use Any Left Click Skill"</Description>
+                                  <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">2:Izuku Midoriya
+3:Katsuki Bakugo
+4:Ochaco Uraraka
+6:Tenya Lida
+5:Shoto Todoroki
+7:Tsuyu Asui
+9:Eijiro Kirishima
+11:Momo Yaoyorozu
+8:Denki Kaminari
+32:Itsuka Kendo
+36:Ibara Shiozaki
+13:All Might
+14:Shota Aizawa
+35:Cementoss
+20:Endeavor
+34:Mt. Lady
+15:Tomura Shigaraki
+16:All For One
+17:Dabi
+18:Himiko Toga
+27:Twice
+28:Mr. Compress
+21:Mirio Togata
+26:Overhaul
+29:Hawks
+</DropDownList>
+                                  <ShowAsSigned>0</ShowAsSigned>
+                                  <Color>FF8000</Color>
+                                  <VariableType>4 Bytes</VariableType>
+                                  <Address>[[[[[[LocalPlayer]+30]+228]+280]+840]+160]+211</Address>
+                                </CheatEntry>
+                              </CheatEntries>
+                            </CheatEntry>
+                          </CheatEntries>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>113989</ID>
+                          <Description>"Movement Pointers"</Description>
+                          <Options moHideChildren="1"/>
+                          <Color>00FFFF</Color>
+                          <GroupHeader>1</GroupHeader>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>113920</ID>
+                              <Description>"Attack+Movement Speed (1 = DEFAULT)"</Description>
+                              <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">1:Default
+</DropDownList>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <Color>FFFF00</Color>
+                              <VariableType>Float</VariableType>
+                              <Address>[[[[LocalPlayer]+30]+228]+280]+98</Address>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>113925</ID>
+                              <Description>"Run Speed (HOLD SHIFT)"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <Color>FFFF00</Color>
+                              <VariableType>Float</VariableType>
+                              <Address>[[[[[LocalPlayer]+30]+228]+280]+780]+FC</Address>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>113952</ID>
+                              <Description>"Walkspeed (DON'T HOLD SHIFT)"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <Color>FFFF00</Color>
+                              <VariableType>Float</VariableType>
+                              <Address>[[[[[LocalPlayer]+30]+228]+280]+780]+E0</Address>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>113964</ID>
+                              <Description>"Aiming Speed Multiplier"</Description>
+                              <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">0.6000000238:Default
+</DropDownList>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <Color>FFFF00</Color>
+                              <VariableType>Float</VariableType>
+                              <Address>[[[[[LocalPlayer]+30]+228]+280]+780]+1DC</Address>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>113963</ID>
+                              <Description>"Crouch Speed Multiplier"</Description>
+                              <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">0.6000000238:Default
+</DropDownList>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <Color>FFFF00</Color>
+                              <VariableType>Float</VariableType>
+                              <Address>[[[[[LocalPlayer]+30]+228]+280]+780]+1E0</Address>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>113962</ID>
+                              <Description>"Dodge Speed (DEFAULT = 1000)"</Description>
+                              <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">1000:Default
+</DropDownList>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <Color>FFFF00</Color>
+                              <VariableType>Float</VariableType>
+                              <Address>[[[[[LocalPlayer]+30]+228]+280]+780]+1D4</Address>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>113929</ID>
+                              <Description>"Jump Height Multiplier (DEFAULT = 1)"</Description>
+                              <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">1:Default
+</DropDownList>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <Color>FFFF00</Color>
+                              <VariableType>Float</VariableType>
+                              <Address>[[[[LocalPlayer]+30]+228]+A90]+7C</Address>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>113924</ID>
+                              <Description>"Infinite Jumps (SET VALUE ON/OFF)"</Description>
+                              <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Off
+999999999:On
+</DropDownList>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <Color>FFFF00</Color>
+                              <VariableType>4 Bytes</VariableType>
+                              <Address>[[[[[LocalPlayer]+30]+228]+280]+780]+150</Address>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>113926</ID>
+                              <Description>"Wall Crawl Speed (Default = 700)"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <Color>FFFF00</Color>
+                              <VariableType>Float</VariableType>
+                              <Address>[[[[[LocalPlayer]+30]+228]+280]+780]+1C0</Address>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>113942</ID>
+                              <Description>"Run Up Walls (RUN INTO WALL)"</Description>
+                              <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">0:Off
+1:On
+</DropDownList>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <Color>FFFF00</Color>
+                              <VariableType>Byte</VariableType>
+                              <Address>[[[[[LocalPlayer]+30]+228]+280]+3E8]+40</Address>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>113921</ID>
+                              <Description>"Gravity (-1480 = DEFAULT)"</Description>
+                              <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">-1480:Default
+</DropDownList>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <Color>FFFF00</Color>
+                              <VariableType>Float</VariableType>
+                              <Address>[[[[[LocalPlayer]+30]+228]+280]+780]+B4</Address>
+                            </CheatEntry>
+                          </CheatEntries>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>113982</ID>
+                          <Description>"Mt. Lady Giant Form Pointers"</Description>
+                          <Options moHideChildren="1"/>
+                          <Color>00FFFF</Color>
+                          <GroupHeader>1</GroupHeader>
+                          <CheatEntries>
+                            <CheatEntry>
+                              <ID>113983</ID>
+                              <Description>"Please keep in mind that these two options"</Description>
+                              <Color>0000FF</Color>
+                              <GroupHeader>1</GroupHeader>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>113984</ID>
+                              <Description>"properly populate only when using Mt. Lady"</Description>
+                              <Color>0000FF</Color>
+                              <GroupHeader>1</GroupHeader>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>113965</ID>
+                              <Description>"Mt. Lady Giant Form Move Speed(DEFAULT = 1200)"</Description>
+                              <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">1200:Default
+</DropDownList>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <Color>FFFF00</Color>
+                              <VariableType>Float</VariableType>
+                              <Address>[[[[[LocalPlayer]+30]+228]+280]+780]+1F8</Address>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>113961</ID>
+                              <Description>"Mt. Lady Giant Form Size(CHANGE VALUE FIRST)"</Description>
+                              <DropDownList DescriptionOnly="1" DisplayValueAsItem="1">12:Default
+</DropDownList>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <Color>FFFF00</Color>
+                              <VariableType>Float</VariableType>
+                              <Address>[[[[[LocalPlayer]+30]+228]+280]+780]+1E4</Address>
+                            </CheatEntry>
+                          </CheatEntries>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>113906</ID>
+                      <Description>"----------------------------------------------------------------------------------------------------------------"</Description>
+                      <Color>FFFF00</Color>
+                      <GroupHeader>1</GroupHeader>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>113922</ID>
+                      <Description>"𝗠𝗢𝗗𝗜𝗙𝗜𝗖𝗔𝗧𝗜𝗢𝗡𝗦 (OFFLINE)(IGNORE)"</Description>
+                      <Color>808080</Color>
+                      <GroupHeader>1</GroupHeader>
+                      <CheatEntries>
+                        <CheatEntry>
+                          <ID>113979</ID>
+                          <Description>"Force Play Any Character (LOCK)"</Description>
+                          <DropDownList ReadOnly="1" DescriptionOnly="1" DisplayValueAsItem="1">2:Izuku Midoriya
+3:Katsuki Bakugo
+4:Ochaco Uraraka
+6:Tenya Lida
+5:Shoto Todoroki
+7:Tsuyu Asui
+9:Eijiro Kirishima
+11:Momo Yaoyorozu
+8:Denki Kaminari
+32:Itsuka Kendo
+36:Ibara Shiozaki
+13:All Might
+14:Shota Aizawa
+35:Cementoss
+20:Endeavor
+34:Mt. Lady
+15:Tomura Shigaraki
+16:All For One
+17:Dabi
+18:Himiko Toga
+27:Twice
+28:Mr. Compress
+21:Mirio Togata
+26:Overhaul
+29:Hawks
+</DropDownList>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <Color>808080</Color>
+                          <VariableType>4 Bytes</VariableType>
+                          <Address>[[[[LocalPlayer]+30]+228]+280]+350</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>113916</ID>
+                          <Description>"Health Pointer"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <Color>808080</Color>
+                          <VariableType>Float</VariableType>
+                          <Address>[[[LocalPlayer]+30]+228]+4C0</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>113917</ID>
+                          <Description>"Guard Points Pointer"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <Color>808080</Color>
+                          <VariableType>Float</VariableType>
+                          <Address>[[[LocalPlayer]+30]+228]+6AC</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>113966</ID>
+                          <Description>"X-Coordinate"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <Color>808080</Color>
+                          <VariableType>Float</VariableType>
+                          <Address>[[[[[LocalPlayer]+30]+228]+280]+290]+11C</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>113967</ID>
+                          <Description>"Y-Coordinate"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <Color>808080</Color>
+                          <VariableType>Float</VariableType>
+                          <Address>[[[[[LocalPlayer]+30]+228]+280]+290]+120</Address>
+                        </CheatEntry>
+                        <CheatEntry>
+                          <ID>113968</ID>
+                          <Description>"Z-Coordinate"</Description>
+                          <ShowAsSigned>0</ShowAsSigned>
+                          <Color>808080</Color>
+                          <VariableType>Float</VariableType>
+                          <Address>[[[[[LocalPlayer]+30]+228]+280]+290]+124</Address>
+                        </CheatEntry>
+                      </CheatEntries>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>LocalPlayer:mov rax,[rcx]</Description>
+      <AddressString>MHUR.exe+2ECA3B3</AddressString>
+      <Before>
+        <Byte>48</Byte>
+        <Byte>89</Byte>
+        <Byte>5C</Byte>
+        <Byte>24</Byte>
+        <Byte>20</Byte>
+      </Before>
+      <Actual>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>FF</Byte>
+        <Byte>90</Byte>
+        <Byte>80</Byte>
+        <Byte>02</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Ability Count :mov eax,[rax+34]</Description>
+      <AddressString>MHUR.exe+39E0A26</AddressString>
+      <Before>
+        <Byte>C8</Byte>
+        <Byte>0F</Byte>
+        <Byte>B6</Byte>
+        <Byte>50</Byte>
+        <Byte>0C</Byte>
+      </Before>
+      <Actual>
+        <Byte>8B</Byte>
+        <Byte>40</Byte>
+        <Byte>34</Byte>
+      </Actual>
+      <After>
+        <Byte>41</Byte>
+        <Byte>8B</Byte>
+        <Byte>09</Byte>
+        <Byte>66</Byte>
+        <Byte>0F</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Skill Level :mov [rsp+20],eax</Description>
+      <AddressString>MHUR.exe+446CAEF</AddressString>
+      <Before>
+        <Byte>24</Byte>
+        <Byte>28</Byte>
+        <Byte>48</Byte>
+        <Byte>8B</Byte>
+        <Byte>CD</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>44</Byte>
+        <Byte>24</Byte>
+        <Byte>20</Byte>
+      </Actual>
+      <After>
+        <Byte>E8</Byte>
+        <Byte>38</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>Temp</Name>
+      <Address>2D7B7C70000</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+  <LuaScript>PROCESS_NAME = 'MHUR.exe'
+--------
+-------- Auto Attach
+--------
+local autoAttachTimer = nil ---- variable to hold timer object
+local autoAttachTimerInterval = 1000 ---- Timer intervals are in milliseconds
+local autoAttachTimerTicks = 0 ---- variable to count number of times the timer has run
+local autoAttachTimerTickMax = 5000 ---- Set to zero to disable ticks max
+local function autoAttachTimer_tick(timer) ---- Timer tick call back
+        ---- Destroy timer if max ticks is reached
+	if autoAttachTimerTickMax &gt; 0 and autoAttachTimerTicks &gt;= autoAttachTimerTickMax then
+		timer.destroy()
+	end
+        ---- Check if process is running
+	if getProcessIDFromProcessName(PROCESS_NAME) ~= nil then
+		timer.destroy() ---- Destroy timer
+		openProcess(PROCESS_NAME) ---- Open the process
+	end
+	autoAttachTimerTicks = autoAttachTimerTicks + 1 ---- Increase ticks
+end
+autoAttachTimer = createTimer(getMainForm()) ---- Create timer with the main form as it's parent
+autoAttachTimer.Interval = autoAttachTimerInterval ---- Set timer interval
+autoAttachTimer.OnTimer = autoAttachTimer_tick ---- Set timer tick call back
+</LuaScript>
+</CheatTable>
